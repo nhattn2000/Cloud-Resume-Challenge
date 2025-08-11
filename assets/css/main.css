@@ -2138,15 +2138,14 @@ input, select, textarea {
 		}
 
 			#nav ul li a {
-				display: block;
+			  	display: flex;
+  				justify-content: space-between;
+				align-items: center;
 				padding: 0.5em 1.5em 0.5em 1.5em;
 				color: rgba(255, 255, 255, 0.5);
 				text-decoration: none;
 				outline: 0;
 				border: 0;
-				-moz-transition: none;
-				-webkit-transition: none;
-				-ms-transition: none;
 				transition: none;
 			}
 
@@ -2154,10 +2153,11 @@ input, select, textarea {
 					position: relative;
 					display: block;
 					font-size: 0.8em;
+					padding-left: 3em;
 				}
 
 					#nav ul li a span:before {
-						position: absolute;
+						position: relative;
 						left: 0;
 						color: #41484c;
 						text-align: center;
@@ -2174,7 +2174,17 @@ input, select, textarea {
 					#nav ul li a.active span:before {
 						color: #8ebebc;
 					}
-
+				#nav ul li a .nav-text {
+					flex-grow: 1;
+					text-align: right;
+					padding-left: 1em;
+					font-size: 0.8em;
+				}
+				#nav ul li a .icon {
+					margin-left: 0;   /* remove any left margin */
+					padding-left: 0;  /* remove any left padding */
+					min-width: 1.25em; /* keep consistent icon width */
+				}
 /* Footer */
 
 	#footer {
@@ -2376,10 +2386,11 @@ input, select, textarea {
 				font-size: 0.8em;
 				padding-top: 0.5em;
 				padding-bottom: 0.5em;
+				padding-left: 2em;
 			}
 
 				#nav ul li a span {
-					padding-right: 2.25em;
+					padding-right: 1em;
 				}
 
 					#nav ul li a span:before {
