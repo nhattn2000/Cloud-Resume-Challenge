@@ -1,9 +1,23 @@
-﻿# Terraform
-.terraform/
+﻿# Terraform local state (even if remote backend is used)
 *.tfstate
 *.tfstate.*
-crash.log
 
-# OS/editor
+# Terraform crash logs
+crash.log
+crash.*.log
+
+# Sensitive variable files
+*.tfvars
+*.tfvars.json
+
+# Terraform working directory
+.terraform/
+
+# Backup and temp files
+*.backup
+*.bak
+*.tmp
+
+# OS / editor files
 .DS_Store
 Thumbs.db
