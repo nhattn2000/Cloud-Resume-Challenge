@@ -1,0 +1,9 @@
+﻿# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+
+# OS/editor
+.DS_Store
+Thumbs.db
