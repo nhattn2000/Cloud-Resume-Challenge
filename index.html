@@ -90,9 +90,11 @@
 
 							<header>
 								<h2 class="alt">Hi! I'm Nhat-Tien Nguyen, a cloud engineer in training.</h2>
-								<p> I have designed and deployed this website as part of the <a href="https://cloudresumechallenge.dev/" target="_blank" rel="noopener noreferrer">
-    							Cloud Resume Challenge </a>.
+								<p> I have designed and deployed this website as part of the 
+									<a href="https://cloudresumechallenge.dev/" target="_blank" rel="noopener noreferrer">
+    								Cloud Resume Challenge </a>.
 								</p>
+								<p>View Counter: <span id="counter-number">Loading...</span></p>
 							</header>
 
 						</div>
@@ -175,6 +177,17 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script>
+			(async () => {
+			try {
+				const r = await fetch('https://api.tien-cloud.com'); 
+				const { pageViews } = await r.json();
+				document.querySelector('.counter-number').textContent = pageViews;
+			} catch {
+				document.querySelector('.counter-number').textContent = 'Error';
+			}
+			})();
+			</script>
 
 	</body>
 </html>
