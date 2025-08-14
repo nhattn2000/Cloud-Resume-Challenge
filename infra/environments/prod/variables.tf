@@ -1,8 +1,3 @@
-variable "aws_profile" {
-  type        = string
-  description = "AWS CLI profile to use"
-}
-
 variable "region" {
   type        = string
   description = "Primary AWS region for resources"
