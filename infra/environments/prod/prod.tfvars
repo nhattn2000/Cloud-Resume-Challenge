@@ -1,0 +1,5 @@
+region        = "us-east-1"
+domain_name   = "tien-cloud.com"
+subdomain     = ""
+api_subdomain = "api.tien-cloud.com"
+website_dir   = "../../website"
