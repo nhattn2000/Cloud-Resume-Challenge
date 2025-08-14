@@ -13,3 +13,8 @@ variable "index_doc"   {
 variable "error_doc"   {
     type = string
     }
+
+variable "cloudfront_distribution_arn" {
+  type        = string
+  description = "CloudFront distribution ARN for OAC SourceArn condition"
+}
