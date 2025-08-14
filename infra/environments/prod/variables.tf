@@ -28,3 +28,8 @@ variable "prevent_destroy" {
   type    = bool
   default = true
 }
+
+variable "acm_cert_arn_us_east_1" {
+  type        = string
+  description = "ACM cert ARN in us-east-1"
+}
