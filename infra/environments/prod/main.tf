@@ -14,3 +14,9 @@ module "cloudfront" {
   s3_origin_domain_name = module.s3.bucket_domain_name
   aliases               = ["tien-cloud.com", "*.tien-cloud.com"]
 }
+
+module "acm" {
+  source = "../modules/acm"
+  providers = { aws.us_east_1 = aws.us_east_1 }
+  domain_name   = var.domain_name
+}
