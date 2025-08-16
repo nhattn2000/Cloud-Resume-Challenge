@@ -25,3 +25,17 @@ module "dynamodb_table" {
   source = "../modules/dynamodb_table"
   table_name = var.table_name
 }
+
+module "lambda" {
+  source = "../modules/lambda"
+
+  lambda_function_name  = var.lambda_function_name
+  lambda_handler        = var.lambda_handler
+  lambda_runtime        = var.lambda_runtime
+  lambda_filename       = var.lambda_filename
+  lambda_role_arn       = var.lambda_role_arn
+  dynamodb_table_name   = module.dynamodb_table.table_name
+  dynamodb_table_arn    = module.dynamodb_table.table_arn
+  account_id            = var.account_id
+  region                = var.region
+}

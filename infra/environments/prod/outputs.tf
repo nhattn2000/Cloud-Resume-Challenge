@@ -47,3 +47,17 @@ output "table_name" {
 output "table_arn" {
   value = module.dynamodb_table.table_arn
 }
+
+#Lambda Outputs
+
+output "lambda_function_name" {
+  value = module.lambda.lambda_function_name
+}
+
+output "lambda_function_arn" {
+  value = module.lambda.lambda_function_arn
+}
+
+output "lambda_invoke_arn" {
+  value = module.lambda.lambda_invoke_arn
+}
