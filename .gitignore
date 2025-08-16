@@ -1,4 +1,4 @@
-﻿# Terraform local state (even if remote backend is used)
+﻿# Terraform local state
 *.tfstate
 *.tfstate.*
 
@@ -6,6 +6,9 @@
 crash.log
 crash.*.log
 
+#Terraform .tfvars
+*.tfvars
+*.tfvars.json
 # Terraform working directory
 .terraform/
 
@@ -17,3 +20,6 @@ crash.*.log
 # OS / editor files
 .DS_Store
 Thumbs.db
+
+lambda.zip
+**/lambda.zip
