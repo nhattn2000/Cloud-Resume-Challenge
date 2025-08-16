@@ -33,3 +33,8 @@ variable "acm_cert_arn_us_east_1" {
   type        = string
   description = "ACM cert ARN in us-east-1"
 }
+
+variable "table_name" {
+  type = string
+  description = "Dynamodb table name for View Counter"
+}

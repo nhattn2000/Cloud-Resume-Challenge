@@ -21,3 +21,29 @@ output "distribution_arn" {
     value = module.cloudfront.distribution_arn
 }
 
+#ACM Outputs
+
+output "cert_arn" {
+  description = "ARN of the ACM certificate"
+  value       = module.acm.cert_arn
+}
+
+output "cert_domain_name" {
+  description = "Primary domain name of the certificate"
+  value       = module.acm.cert_domain_name
+}
+
+output "cert_sans" {
+  description = "Subject Alternative Names on the certificate"
+  value       = module.acm.cert_sans
+}
+
+#DynamoDB Outputs
+
+output "table_name" {
+  value = module.dynamodb_table.table_name
+}
+
+output "table_arn" {
+  value = module.dynamodb_table.table_arn
+}

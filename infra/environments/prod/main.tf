@@ -20,3 +20,8 @@ module "acm" {
   providers = { aws.us_east_1 = aws.us_east_1 }
   domain_name   = var.domain_name
 }
+
+module "dynamodb_table" {
+  source = "../modules/dynamodb_table"
+  table_name = var.table_name
+}
