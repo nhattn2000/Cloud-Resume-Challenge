@@ -5,11 +5,24 @@ variable "acm_cert_arn" {
 
 variable "aliases" {
   type        = list(string)
-  description = "CloudFront aliases (CNAMEs)"
+  description = "CloudFront aliases"
   default     = ["tien-cloud.com", "*.tien-cloud.com"]
 }
 
 variable "s3_origin_domain_name" {
   type        = string
-  description = "S3 REST regional domain name (e.g., bucket.s3.us-east-1.amazonaws.com)"
+  description = "S3 REST regional domain name (bucket.s3.us-east-1.amazonaws.com)"
+}
+
+variable "origin_id" {
+  type = string
+}
+
+variable "index_doc"   {
+    type = string 
+    }
+
+variable "tags" {
+  type = map(string)
+  description = "Tag for Cloud Resume Project"
 }

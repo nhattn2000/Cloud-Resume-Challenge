@@ -1,13 +1,10 @@
-# modules/s3/main.tf  (relative: infra/environments/modules/s3/main.tf)
-
 resource "aws_s3_bucket" "resumebucket" {
   bucket = var.bucket_name
-   tags = {
-    Project = "Cloud Resume Challenge"
-  }
-    lifecycle {
-    prevent_destroy = true
-  }
+   tags = var.tags
+
+    lifecycle {               #prevents accidental deletion
+      prevent_destroy = true
+    }
 }
 
 resource "aws_s3_bucket_public_access_block" "resumebucket_pab" {

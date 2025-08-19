@@ -17,14 +17,12 @@ resource "aws_acm_certificate" "resume_acm" {
         var.domain_name
     ]
 
-    validation_method         = "DNS"
+    validation_method = "DNS"
 
-    tags = {
-      Project = "Cloud Resume Challenge"
-    }
+    tags = var.tags
 
     lifecycle {
-    create_before_destroy = true
+      prevent_destroy = true
     }
 }
 

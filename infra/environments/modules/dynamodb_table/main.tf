@@ -8,8 +8,9 @@ resource "aws_dynamodb_table" "resume_table" {
     type = "S"
   }
 
-  tags = {
-    Project = "Cloud Resume Challenge"
+  tags = var.tags
+  
+  lifecycle {
+    prevent_destroy= true
   }
-    
 }
