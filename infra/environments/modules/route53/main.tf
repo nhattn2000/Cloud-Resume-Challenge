@@ -3,6 +3,7 @@ resource "aws_route53_zone" "custom_zone" {
   comment = "HostedZone created by Route53 Registrar"
 }
 
+# ACM Validation Record
 resource "aws_route53_record" "acm_validation" {
   zone_id = aws_route53_zone.custom_zone.zone_id
   name    = "_5b7e76154189debbe2aca39252f05eb5.tien-cloud.com"
@@ -19,7 +20,7 @@ resource "aws_route53_record" "apex_a" {
   type    = "A"
   alias {
     name                   = var.cloudfront_domain_name      # e.g., d1234abcd.cloudfront.net
-    zone_id                = "Z2FDTNDATAQYW2"
+    zone_id                = var.cfn_zone_id
     evaluate_target_health = false
   }
 }
@@ -29,7 +30,7 @@ resource "aws_route53_record" "apex_aaaa" {
   type    = "AAAA"
   alias {
     name                   = var.cloudfront_domain_name
-    zone_id                = "Z2FDTNDATAQYW2"
+    zone_id                = var.cfn_zone_id
     evaluate_target_health = false
   }
 }
@@ -39,7 +40,7 @@ resource "aws_route53_record" "wildcard_a" {
   type    = "A"
   alias {
     name                   = var.cloudfront_domain_name
-    zone_id                = "Z2FDTNDATAQYW2"
+    zone_id                = var.cfn_zone_id
     evaluate_target_health = false
   }
 }
@@ -49,7 +50,7 @@ resource "aws_route53_record" "wildcard_aaaa" {
   type    = "AAAA"
   alias {
     name                   = var.cloudfront_domain_name
-    zone_id                = "Z2FDTNDATAQYW2"
+    zone_id                = var.cfn_zone_id
     evaluate_target_health = false
   }
 }
@@ -58,7 +59,7 @@ resource "aws_route53_record" "wildcard_aaaa" {
 #Alias A Record for APIGW
 resource "aws_route53_record" "api_alias_record" {
   zone_id = aws_route53_zone.custom_zone.zone_id
-  name    = "api.tien-cloud.com"
+  name    = var.api_subdomain
   type    = "A"
   alias {
     name                   = var.apigw_domain_target   # e.g., d-abc123.execute-api.us-east-1.amazonaws.com

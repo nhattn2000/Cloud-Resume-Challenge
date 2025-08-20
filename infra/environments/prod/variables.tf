@@ -13,20 +13,11 @@ variable "tags" {
     "Project" = "Cloud Resume Challenge"
   }
 }
-
-#R53
 variable "domain_name" {
   type        = string
   description = "Root domain (e.g., example.com)"
 }
-variable "subdomain" {
-  type        = string
-  description = "Website host (e.g., www)"
-}
-variable "api_subdomain" {
-  type        = string
-  description = "API host (e.g., api)"
-}
+
 
 #S3
 variable "bucket_name" {
@@ -40,6 +31,10 @@ variable "origin_id" {
 }
 variable "index_doc" {
   type = string
+}
+variable "cfn_zone_id" {
+  type = string
+  description = "CloudFormation Hosted Zone ID for the custom domain"
 }
 
 #dynamodb
@@ -72,3 +67,7 @@ variable "lambda_role_arn" {
 }
 
 #APIGW
+variable "api_subdomain" {
+  type        = string
+  description = "API host (e.g., api)"
+}

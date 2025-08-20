@@ -1,10 +1,10 @@
 resource "aws_s3_bucket" "resumebucket" {
   bucket = var.bucket_name
-   tags = var.tags
+  tags   = var.tags
 
-    lifecycle {               #prevents accidental deletion
-      prevent_destroy = true
-    }
+  lifecycle {           
+    prevent_destroy = true  #prevents accidental deletion
+  }
 }
 
 resource "aws_s3_bucket_public_access_block" "resumebucket_pab" {

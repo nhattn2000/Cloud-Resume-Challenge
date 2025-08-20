@@ -55,6 +55,8 @@ module "route53" {
   cloudfront_domain_name = module.cloudfront.distribution_domain_name
   apigw_domain_target    = module.apigw_http.custom_domain_regional_domain_name
   apigw_hosted_zone_id   = module.apigw_http.custom_domain_hosted_zone_id
+  cfn_zone_id            = var.cfn_zone_id
+  api_subdomain          = var.api_subdomain
 }
 
 
