@@ -35,10 +35,6 @@ variable "bucket_name" {
 
 
 #ACM and CFN
-variable "acm_cert_arn_us_east_1" {
-  type        = string
-  description = "ACM cert ARN in us-east-1"
-}
 variable "origin_id" {
   type = string
 }
@@ -74,3 +70,5 @@ variable "lambda_role_arn" {
   type        = string
   description = "IAM role ARN for Lambda"
 }
+
+#APIGW

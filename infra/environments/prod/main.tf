@@ -7,7 +7,7 @@ module "s3" {
 
 module "cloudfront" {
   source                = "../modules/cloudfront"
-  acm_cert_arn          = var.acm_cert_arn_us_east_1 
+  acm_cert_arn          = module.acm.cert_arn
   s3_origin_domain_name = module.s3.bucket_domain_name
   origin_id             = var.origin_id
   aliases               = ["tien-cloud.com", "*.tien-cloud.com"]
@@ -42,3 +42,10 @@ module "lambda" {
   tags                  = var.tags
 }
 
+module "apigw_http"{
+  source              = "../modules/apigw_http"
+  api_subdomain       = var.api_subdomain
+  acm_cert_arn        = module.acm.cert_arn
+  lambda_function_arn = module.lambda.lambda_function_arn
+  tags                = var.tags
+}
