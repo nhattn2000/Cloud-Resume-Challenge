@@ -1,0 +1,46 @@
+name: Frontend Website Update
+on:
+  push: 
+    branches: [main]
+    paths:
+      - "website/**"
+      - ".github/workflows/deploy-frontend.yml"
+    paths-ignore:
+      - "**/*.md"  # ignore markdown file changes
+      - "infra/**" # ignore infra changes
+
+permissions:
+  id-token: write   # This is required for requesting the JWT
+  contents: read    # This is required for actions/checkout
+env:
+  BUCKET_NAME : ${{ vars.BUCKET_NAME }}
+  AWS_REGION : ${{ vars.AWS_REGION }}
+  DIST_ID : ${{ vars.DIST_ID }}
+# permission can be added at job level or workflow level
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git clone the repository
+        uses: actions/checkout@v4
+
+      - name: configure aws credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.ROLE_TO_ASSUME }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Install AWS CLI v2
+        uses: unfor19/install-aws-cli-action@v1
+        with:
+          version: "2"
+
+      # Upload a file to AWS s3
+      - name: Upload website to S3
+        run: aws s3 sync website "s3://${{ env.BUCKET_NAME }}"
+
+      - name: Invalidate CloudFront
+        run: aws cloudfront create-invalidation --distribution-id "${{ env.DIST_ID }}" --paths "/*"
+            
+            

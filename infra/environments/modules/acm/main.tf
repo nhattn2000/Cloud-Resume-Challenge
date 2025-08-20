@@ -18,7 +18,6 @@ resource "aws_acm_certificate" "resume_acm" {
     ]
 
     validation_method = "DNS"
-
     tags = var.tags
 
     lifecycle {
