@@ -49,3 +49,12 @@ module "apigw_http"{
   lambda_function_arn = module.lambda.lambda_function_arn
   tags                = var.tags
 }
+
+module "route53" {
+  source = "../modules/route53"
+  cloudfront_domain_name = module.cloudfront.distribution_domain_name
+  apigw_domain_target    = module.apigw_http.custom_domain_regional_domain_name
+  apigw_hosted_zone_id   = module.apigw_http.custom_domain_hosted_zone_id
+}
+
+

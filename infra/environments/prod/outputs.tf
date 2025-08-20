@@ -53,3 +53,17 @@ output "lambda_function_arn" {
 output "lambda_invoke_arn" {
   value = module.lambda.lambda_invoke_arn
 }
+
+# Custom domain
+output "custom_domain_name" {
+  value       = module.apigw_http.custom_domain_name
+  description = "The custom domain name for the API Gateway"
+}
+output "custom_domain_regional_domain_name" {
+  value       = module.apigw_http.custom_domain_regional_domain_name
+  description = "The regional domain name to use as a Route53 alias target"
+}
+output "custom_domain_hosted_zone_id" {
+  value       = module.apigw_http.custom_domain_hosted_zone_id
+  description = "The hosted zone ID to use for Route53 alias records"
+}
