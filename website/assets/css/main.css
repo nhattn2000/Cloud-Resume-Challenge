@@ -177,8 +177,8 @@ input, select, textarea {
 	}
 
 		a:hover {
-		background-color: #8ebebc;
-			border-bottom-color: rgba(255, 255, 255, 0);
+		background-color: inherit !important;
+  		border-bottom-color: inherit !important;
 		}
 
 	sub {
@@ -2668,23 +2668,3 @@ input, select, textarea {
 				}
 
 	}
-/* Kill tap highlight and background on hamburger toggle */
-#headerToggle .toggle {
-  -webkit-tap-highlight-color: transparent; /* iOS/Android highlight */
-  background: transparent !important;      /* remove background */
-  box-shadow: none !important;
-  outline: none !important;
-}
-
-#headerToggle .toggle:active,
-#headerToggle .toggle:focus {
-  background: transparent !important; 
-  box-shadow: none !important;
-  outline: none !important;
-}
-
-#headerToggle .toggle::before,
-#headerToggle .toggle::after {
-  background: transparent !important;
-  box-shadow: none !important;
-}
