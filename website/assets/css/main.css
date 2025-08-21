@@ -2668,3 +2668,14 @@ input, select, textarea {
 				}
 
 	}
+/* Fixes for mobile devices */
+#nav .toggle {
+  -webkit-tap-highlight-color: transparent; /* removes the colored block on iOS/Android */
+}
+
+#nav .toggle:active,
+#nav .toggle:focus {
+  background: transparent !important; 
+  box-shadow: none !important;       
+  outline: none !important;          
+}
