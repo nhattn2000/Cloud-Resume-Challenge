@@ -1977,7 +1977,7 @@ input, select, textarea {
 		input[type="reset"]:active,
 		button:active,
 		.button:active {
-			background-color: #7eaeac;
+			background-color: inherit;
 		}
 
 /* Item */
