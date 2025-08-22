@@ -22,6 +22,7 @@ It demonstrates cloud engineering, Infrastructure as Code (IaC), CI/CD, and serv
 - **GitHub Actions** – CI/CD pipeline for automatic deployments  
 - **Terraform** – Modular Infrastructure as Code  
 
+📄 [View Architecture Diagram (PDF)](./docs/Cloud Resume Challenge Architecture.pdf)
 ---
 
 ## 📂 Repository Structure
